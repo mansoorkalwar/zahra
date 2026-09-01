@@ -1,0 +1,1682 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #10050d;
+    color: #fff;
+    overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif;
+}
+
+button {
+    font-family: inherit;
+}
+
+
+/* =====================================================
+   LOADING SCREEN
+===================================================== */
+
+.loading-screen {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    background:
+        radial-gradient(circle at center,
+            #47162f,
+            #170713 70%);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    transition: opacity 1s ease,
+                visibility 1s ease;
+}
+
+.loading-screen.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-heart {
+    font-size: 70px;
+
+    color: #ff9fc7;
+
+    animation:
+        loaderPulse 1.2s infinite;
+
+    text-shadow:
+        0 0 30px #ff5794;
+}
+
+.loading-screen p {
+    margin-top: 20px;
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    color: #f3cbdc;
+}
+
+@keyframes loaderPulse {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 75px;
+
+    padding: 0 7%;
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background:
+        rgba(15, 4, 12, .55);
+
+    backdrop-filter: blur(18px);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.08);
+}
+
+.nav-logo {
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-size: 32px;
+
+    color: #ffadc9;
+}
+
+.nav-logo span {
+    color: #fff;
+}
+
+.nav-links {
+    display: flex;
+
+    gap: 35px;
+
+    list-style: none;
+}
+
+.nav-links a {
+    color: #ead8e1;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: #ff9fc7;
+}
+
+.music-btn {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(255,255,255,.2);
+
+    background:
+        rgba(255,255,255,.08);
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.music-btn:hover {
+    transform: rotate(15deg);
+
+    background:
+        rgba(255,100,160,.2);
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            #641d43 0%,
+            #301024 38%,
+            #12050e 80%
+        );
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,75,145,.08);
+
+    filter: blur(70px);
+}
+
+.hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    padding: 20px;
+}
+
+.small-title {
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    color: #e6b8cb;
+}
+
+.hero h1 {
+    margin-top: 15px;
+
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-weight: 400;
+
+    font-size:
+        clamp(70px, 12vw, 150px);
+
+    line-height: .95;
+
+    color: #ffabc9;
+
+    text-shadow:
+        0 0 50px rgba(255,100,160,.3);
+}
+
+.divider {
+    margin: 30px auto;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    color: #ff8fb8;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+
+    width: 70px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #ff8fb8
+        );
+}
+
+.divider::after {
+    background:
+        linear-gradient(
+            90deg,
+            #ff8fb8,
+            transparent
+        );
+}
+
+.hero-subtitle {
+    color: #ead5df;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 21px;
+}
+
+.open-button {
+    margin-top: 35px;
+
+    padding: 15px 30px;
+
+    border: 1px solid
+        rgba(255,255,255,.2);
+
+    border-radius: 50px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,90,145,.85),
+            rgba(153,62,135,.85)
+        );
+
+    cursor: pointer;
+
+    box-shadow:
+        0 15px 40px
+        rgba(255,70,140,.2);
+
+    transition: .35s;
+}
+
+.open-button:hover {
+    transform:
+        translateY(-5px)
+        scale(1.03);
+
+    box-shadow:
+        0 20px 55px
+        rgba(255,70,140,.35);
+}
+
+.scroll-hint {
+    position: absolute;
+
+    bottom: 30px;
+
+    animation:
+        scrollBounce 2s infinite;
+
+    color: #d8a7ba;
+}
+
+@keyframes scrollBounce {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+
+/* =====================================================
+   HEART SECTION
+===================================================== */
+
+.heart-section {
+    min-height: 100vh;
+
+    padding:
+        120px 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            180deg,
+            #12050e,
+            #250b1c,
+            #12050e
+        );
+}
+
+.section-heading {
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+.eyebrow {
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    color: #d989a8;
+}
+
+.section-heading h2 {
+    margin-top: 12px;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 50px;
+
+    font-weight: 500;
+}
+
+.section-heading p {
+    margin-top: 10px;
+
+    color: #bfa5b2;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   GAME
+===================================================== */
+
+.game-container {
+    position: relative;
+
+    width: min(900px, 95vw);
+
+    height: 500px;
+
+    overflow: hidden;
+
+    border-radius: 35px;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            #40132e,
+            #190817 75%
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    box-shadow:
+        inset 0 0 100px
+        rgba(255,70,150,.05),
+        0 30px 100px
+        rgba(0,0,0,.35);
+}
+
+.game-glow {
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    left: 50%;
+    top: 45%;
+
+    transform:
+        translate(-50%,-50%);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,70,140,.1);
+
+    filter: blur(60px);
+}
+
+
+/* =====================================================
+   HEART
+===================================================== */
+
+.heart-wrapper {
+    position: absolute;
+
+    left: 50%;
+    top: 40%;
+
+    transform:
+        translate(-50%,-50%);
+
+    z-index: 5;
+
+    text-align: center;
+}
+
+.heart {
+    position: relative;
+
+    width: 115px;
+    height: 115px;
+
+    background: #ff4c82;
+
+    transform:
+        rotate(-45deg);
+
+    box-shadow:
+        0 0 25px #ff4c82,
+        0 0 70px
+        rgba(255,70,130,.5);
+
+    animation:
+        heartBeat 1.5s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+
+    position: absolute;
+
+    width: 115px;
+    height: 115px;
+
+    border-radius: 50%;
+
+    background: #ff4c82;
+}
+
+.heart::before {
+    top: -57px;
+    left: 0;
+}
+
+.heart::after {
+    left: 57px;
+    top: 0;
+}
+
+.heart-shine {
+    position: absolute;
+
+    width: 25px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.5);
+
+    left: 30px;
+    top: 25px;
+
+    z-index: 10;
+
+    transform:
+        rotate(45deg);
+}
+
+.heart-label {
+    margin-top: 50px;
+
+    color: #dcaec1;
+
+    font-size: 11px;
+
+    opacity: .7;
+}
+
+@keyframes heartBeat {
+
+    0%,100% {
+        transform:
+            rotate(-45deg)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            rotate(-45deg)
+            scale(1.08);
+    }
+}
+
+
+/* HEART BREAK */
+
+.heart-wrapper.broken .heart {
+    animation:
+        heartBreak .9s
+        forwards;
+}
+
+@keyframes heartBreak {
+
+    0% {
+        transform:
+            rotate(-45deg)
+            scale(1);
+    }
+
+    30% {
+        transform:
+            rotate(-45deg)
+            scale(1.3);
+    }
+
+    60% {
+        transform:
+            rotate(-40deg)
+            scale(.9);
+    }
+
+    100% {
+        transform:
+            rotate(-45deg)
+            scale(0);
+
+        opacity: 0;
+    }
+}
+
+.heart-wrapper.broken .heart-label {
+    opacity: 0;
+}
+
+
+/* =====================================================
+   ARROW
+===================================================== */
+
+.arrow-area {
+    position: absolute;
+
+    left: 40px;
+    bottom: 60px;
+
+    width: 180px;
+    height: 50px;
+
+    z-index: 20;
+}
+
+.arrow {
+    width: 160px;
+    height: 12px;
+
+    position: absolute;
+
+    left: 0;
+    top: 20px;
+
+    cursor: grab;
+
+    transform-origin:
+        10px 50%;
+
+    touch-action: none;
+}
+
+.arrow.dragging {
+    cursor: grabbing;
+}
+
+.arrow-shaft {
+    position: absolute;
+
+    left: 15px;
+    top: 3px;
+
+    width: 125px;
+    height: 5px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff9fc7,
+            #fff
+        );
+}
+
+.arrow-head {
+    position: absolute;
+
+    right: 0;
+    top: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left:
+        25px solid #fff;
+
+    border-top:
+        12px solid transparent;
+
+    border-bottom:
+        12px solid transparent;
+}
+
+.arrow-feathers {
+    position: absolute;
+
+    left: 0;
+    top: -4px;
+
+    width: 25px;
+    height: 25px;
+
+    border-left:
+        3px solid #ff9fc7;
+
+    border-top:
+        3px solid #ff9fc7;
+
+    border-bottom:
+        3px solid #ff9fc7;
+}
+
+.game-message {
+    position: absolute;
+
+    bottom: 25px;
+
+    width: 100%;
+
+    text-align: center;
+
+    color: #b998a9;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   EXPLOSION PARTICLES
+===================================================== */
+
+.explosion {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 50;
+}
+
+.explosion-piece {
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #ffabc9;
+
+    animation:
+        explode 1.5s
+        ease-out forwards;
+}
+
+@keyframes explode {
+
+    from {
+        transform:
+            translate(0,0)
+            scale(1);
+
+        opacity: 1;
+    }
+
+    to {
+        transform:
+            translate(
+                var(--x),
+                var(--y)
+            )
+            scale(0);
+
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================
+   LETTER
+===================================================== */
+
+.letter-section {
+    min-height: 100vh;
+
+    position: relative;
+
+    padding: 120px 20px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        #170611;
+}
+
+.letter-glow {
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,70,140,.08);
+
+    filter: blur(100px);
+}
+
+.letter-card {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(800px, 95vw);
+
+    padding: 70px 50px;
+
+    text-align: center;
+
+    border-radius: 35px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    box-shadow:
+        0 40px 100px
+        rgba(0,0,0,.3);
+}
+
+.letter-top {
+    color: #ff9fc7;
+
+    font-size: 30px;
+}
+
+.letter-small {
+    margin-top: 20px;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    color: #b88c9f;
+}
+
+.letter-card h2 {
+    margin-top: 15px;
+
+    font-family:
+        'Amiri',
+        serif;
+
+    font-size: 48px;
+
+    color: #ffb4ce;
+}
+
+.poetry {
+    margin-top: 35px;
+
+    font-family:
+        'Amiri',
+        serif;
+
+    font-size:
+        clamp(21px, 3vw, 28px);
+
+    line-height: 2.2;
+
+    color: #f4dfe8;
+}
+
+.poetry p {
+    margin-bottom: 25px;
+}
+
+.poetry-ending {
+    color: #ffabc9;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   TREE SECTION
+===================================================== */
+
+.tree-section {
+    min-height: 100vh;
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-end;
+
+    background:
+        linear-gradient(
+            180deg,
+            #08040d,
+            #1a0820 55%,
+            #0c050b
+        );
+}
+
+.tree-title {
+    position: absolute;
+
+    top: 100px;
+
+    z-index: 10;
+
+    text-align: center;
+}
+
+.tree-title p {
+    color: #b48da5;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+}
+
+.tree-title h2 {
+    margin-top: 15px;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-weight: 400;
+
+    font-size:
+        clamp(35px, 6vw, 60px);
+
+    color: #f0cad9;
+}
+
+.moon {
+    position: absolute;
+
+    width: 95px;
+    height: 95px;
+
+    top: 120px;
+    right: 12%;
+
+    border-radius: 50%;
+
+    background: #ffe9c7;
+
+    box-shadow:
+        0 0 50px
+        rgba(255,230,190,.4);
+}
+
+.moon-glow {
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    top: 30px;
+    right: 4%;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,220,180,.04);
+
+    filter: blur(50px);
+}
+
+
+/* =====================================================
+   TREE
+===================================================== */
+
+.tree {
+    position: relative;
+
+    width: 520px;
+    height: 650px;
+
+    z-index: 5;
+}
+
+.trunk {
+    position: absolute;
+
+    bottom: 0;
+
+    left: 50%;
+
+    width: 70px;
+    height: 340px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:
+        40px 40px 10px 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #25120f,
+            #5c3027,
+            #351b17
+        );
+
+    box-shadow:
+        10px 0 20px
+        rgba(0,0,0,.3);
+}
+
+.branch {
+    position: absolute;
+
+    bottom: 230px;
+
+    width: 35px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #321813,
+            #60342b
+        );
+
+    border-radius: 30px;
+
+    transform-origin: bottom;
+}
+
+.branch-left {
+    height: 250px;
+
+    left: 49%;
+
+    transform:
+        rotate(-45deg);
+}
+
+.branch-right {
+    height: 270px;
+
+    left: 48%;
+
+    transform:
+        rotate(45deg);
+}
+
+.branch-left-small {
+    height: 180px;
+
+    left: 48%;
+
+    bottom: 310px;
+
+    transform:
+        rotate(-25deg);
+}
+
+.branch-right-small {
+    height: 190px;
+
+    left: 48%;
+
+    bottom: 300px;
+
+    transform:
+        rotate(25deg);
+}
+
+
+/* =====================================================
+   TREE CROWN
+===================================================== */
+
+.tree-crown {
+    position: absolute;
+
+    width: 190px;
+    height: 130px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            #632d4e,
+            #35152e
+        );
+
+    box-shadow:
+        0 0 25px
+        rgba(255,90,170,.1);
+
+    animation:
+        crownFloat 5s
+        ease-in-out infinite;
+}
+
+.crown-1 {
+    top: 100px;
+    left: 40px;
+}
+
+.crown-2 {
+    top: 60px;
+    left: 165px;
+}
+
+.crown-3 {
+    top: 105px;
+    right: 30px;
+}
+
+.crown-4 {
+    top: 180px;
+    left: 90px;
+}
+
+.crown-5 {
+    top: 175px;
+    right: 75px;
+}
+
+.crown-6 {
+    top: 120px;
+    left: 170px;
+
+    width: 180px;
+}
+
+@keyframes crownFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* =====================================================
+   BALLOONS
+===================================================== */
+
+.balloon {
+    position: absolute;
+
+    width: 50px;
+    height: 65px;
+
+    border-radius:
+        50% 50% 45% 45%;
+
+    z-index: 20;
+
+    box-shadow:
+        inset -10px -8px 15px
+        rgba(0,0,0,.12),
+        0 0 20px
+        rgba(255,100,170,.2);
+
+    animation:
+        balloonFloat 4s
+        ease-in-out infinite;
+}
+
+.balloon::after {
+    content: "";
+
+    position: absolute;
+
+    width: 1px;
+
+    height: 130px;
+
+    background:
+        rgba(255,255,255,.45);
+
+    top: 62px;
+
+    left: 50%;
+}
+
+.balloon span {
+    position: absolute;
+
+    width: 12px;
+    height: 8px;
+
+    background: inherit;
+
+    bottom: -4px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
+}
+
+.balloon-pink {
+    top: 105px;
+    left: 70px;
+
+    background: #ff79a9;
+}
+
+.balloon-purple {
+    top: 75px;
+    left: 190px;
+
+    background: #b38aff;
+
+    animation-delay: .6s;
+}
+
+.balloon-gold {
+    top: 120px;
+    right: 75px;
+
+    background: #ffc98b;
+
+    animation-delay: 1s;
+}
+
+.balloon-white {
+    top: 180px;
+    left: 125px;
+
+    background: #f9dce8;
+
+    animation-delay: 1.3s;
+}
+
+.balloon-rose {
+    top: 175px;
+    right: 135px;
+
+    background: #ef82b2;
+
+    animation-delay: 1.8s;
+}
+
+@keyframes balloonFloat {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            rotate(-3deg);
+    }
+
+    50% {
+        transform:
+            translateY(-15px)
+            rotate(3deg);
+    }
+}
+
+
+/* =====================================================
+   GROUND
+===================================================== */
+
+.tree-ground {
+    position: absolute;
+
+    bottom: -100px;
+
+    width: 100%;
+
+    height: 200px;
+
+    border-radius: 50%;
+
+    background:
+        #0b0509;
+
+    box-shadow:
+        0 -20px 80px
+        rgba(255,80,150,.08);
+}
+
+
+/* =====================================================
+   FINAL
+===================================================== */
+
+.final-section {
+    min-height: 90vh;
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 100px 20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #40132d,
+            #160611 70%
+        );
+}
+
+.final-content {
+    position: relative;
+
+    z-index: 10;
+
+    max-width: 700px;
+}
+
+.final-heart {
+    font-size: 50px;
+
+    color: #ff86b4;
+
+    animation:
+        heartBeat 1.5s infinite;
+}
+
+.final-small {
+    margin-top: 20px;
+
+    letter-spacing: 4px;
+
+    font-size: 11px;
+
+    color: #bd91a5;
+
+    text-transform: uppercase;
+}
+
+.final-section h2 {
+    margin-top: 15px;
+
+    font-family:
+        'Great Vibes',
+        cursive;
+
+    font-size:
+        clamp(65px, 12vw, 120px);
+
+    font-weight: 400;
+
+    color: #ffb0cb;
+}
+
+.final-section h3 {
+    margin-top: -10px;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 38px;
+
+    font-weight: 400;
+
+    color: #f5dce7;
+}
+
+.final-message {
+    margin: 30px auto 0;
+
+    max-width: 550px;
+
+    color: #cdb3bf;
+
+    line-height: 1.8;
+
+    font-size: 14px;
+}
+
+.celebrate-button {
+    margin-top: 35px;
+
+    padding: 15px 35px;
+
+    border: 1px solid
+        rgba(255,255,255,.2);
+
+    border-radius: 50px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff5790,
+            #a24a9a
+        );
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.celebrate-button:hover {
+    transform:
+        translateY(-5px)
+        scale(1.04);
+
+    box-shadow:
+        0 15px 50px
+        rgba(255,80,150,.3);
+}
+
+
+/* =====================================================
+   PETALS
+===================================================== */
+
+#petals {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 900;
+}
+
+.petal {
+    position: absolute;
+
+    top: -20px;
+
+    width: 9px;
+    height: 15px;
+
+    border-radius:
+        100% 0 100% 0;
+
+    background: #ff9fc7;
+
+    opacity: .65;
+
+    animation:
+        petalFall linear forwards;
+}
+
+@keyframes petalFall {
+
+    to {
+        transform:
+            translateY(110vh)
+            translateX(120px)
+            rotate(500deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================
+   FIREWORKS
+===================================================== */
+
+.firework {
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #ff9fc7;
+
+    animation:
+        fireworkExplode 1.4s
+        ease-out forwards;
+}
+
+@keyframes fireworkExplode {
+
+    from {
+        transform:
+            translate(0,0)
+            scale(1);
+
+        opacity: 1;
+    }
+
+    to {
+        transform:
+            translate(
+                var(--fx),
+                var(--fy)
+            )
+            scale(.2);
+
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width: 700px) {
+
+    .navbar {
+        height: 65px;
+
+        padding: 0 5%;
+    }
+
+    .nav-logo {
+        font-size: 25px;
+    }
+
+    .nav-links {
+        gap: 13px;
+    }
+
+    .nav-links a {
+        font-size: 9px;
+    }
+
+    .hero h1 {
+        font-size: 75px;
+    }
+
+    .game-container {
+        height: 470px;
+    }
+
+    .arrow-area {
+        left: 25px;
+        bottom: 70px;
+    }
+
+    .letter-card {
+        padding:
+            50px 20px;
+    }
+
+    .tree {
+        transform:
+            scale(.75);
+
+        transform-origin:
+            bottom center;
+
+        margin-bottom: -40px;
+    }
+
+    .moon {
+        right: 8%;
+
+        width: 65px;
+        height: 65px;
+    }
+
+    .tree-title {
+        top: 90px;
+
+        padding: 0 20px;
+    }
+
+    .tree-title h2 {
+        font-size: 35px;
+    }
+}
+
+@media(max-width: 450px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 65px;
+    }
+
+    .hero-subtitle {
+        font-size: 18px;
+    }
+
+    .game-container {
+        height: 430px;
+    }
+
+    .heart {
+        width: 90px;
+        height: 90px;
+    }
+
+    .heart::before,
+    .heart::after {
+        width: 90px;
+        height: 90px;
+    }
+
+    .heart::before {
+        top: -45px;
+    }
+
+    .heart::after {
+        left: 45px;
+    }
+
+    .tree {
+        transform:
+            scale(.62);
+
+        margin-bottom: -80px;
+    }
+
+    .poetry {
+        font-size: 20px;
+    }
+}
